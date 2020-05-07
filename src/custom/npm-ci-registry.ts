@@ -78,7 +78,7 @@ export default class NpmCiRegistry {
 
   _addDefaultUser() {
     const addUser = `expect <<EOD
-spawn npm adduser --registry http://localhost:4873 --scope=@ci
+spawn npm adduser --registry http://verdaccio:4873 --scope=@ci
 expect {
 "Username:" {send "ci\r"; exp_continue}
 "Password:" {send "secret\r"; exp_continue}
@@ -95,7 +95,7 @@ EOD`;
   }
 
   _registerToCiScope() {
-    this.helper.command.runCmd('npm config set @bit:registry http://localhost:4873');
+    this.helper.command.runCmd('npm config set @bit:registry http://verdaccio:4873');
   }
 
   /**
