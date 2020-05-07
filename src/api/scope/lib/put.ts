@@ -6,6 +6,8 @@ import { exportManyBareScope } from '../../../scope/component-ops/export-scope-c
 import BitIds from '../../../bit-id/bit-ids';
 import { isClientHasVersionBefore } from '../../../scope/network/check-version-compatibility';
 
+import publishCompoent from '../../../custom';
+
 const HooksManagerInstance = HooksManager.getInstance();
 
 export type ComponentObjectsInput = {
@@ -41,5 +43,8 @@ export default (async function put(
     // @ts-ignore AUTO-ADDED-AFTER-MIGRATION-PLEASE-FIX!
     headers
   );
+
+  publishCompoent(componentsIds);
+
   return componentsIds;
 });
